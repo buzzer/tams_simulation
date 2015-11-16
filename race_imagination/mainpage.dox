@@ -1,0 +1,13 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\b race_imagination 
+
+race_imagination provides an action interface to simulate dedicate episodes
+with the given parameters. It returns the best suited parameter for that episode.
+
+-->
+
+
+*/

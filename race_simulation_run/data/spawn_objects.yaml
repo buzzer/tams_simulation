@@ -1,0 +1,204 @@
+!Fluent
+Class_Instance: [Robot, PR21]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasPose, Pose, posePR21]
+---
+!Fluent
+Class_Instance: [Pose, posePR21]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasX, "xsd:float", 12.50]
+  -  [hasY, "xsd:float", 9.80]
+  -  [hasZ, "xsd:float",  0.00]
+  -  [hasYaw, "xsd:float", 2.00]
+---
+!Fluent
+Class_Instance: [HorizontalTable, table4]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasPose, Pose, poseTable4]
+---
+!Fluent
+Class_Instance: [Pose, poseTable4]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasX, "xsd:float",  6.40]
+  -  [hasY, "xsd:float",  15.39]
+  -  [hasZ, "xsd:float",  0.0]
+  -  [hasYaw, "xsd:float", 0.00]
+---
+!Fluent
+Class_Instance: [HorizontalTable, table6]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasPose, Pose, poseTable6]
+---
+!Fluent
+Class_Instance: [Pose, poseTable6]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasX, "xsd:float",  11.74]
+  -  [hasY, "xsd:float",  14.99]
+  -  [hasZ, "xsd:float",  0.00]
+  -  [hasYaw, "xsd:float", 1.57]
+---
+!Fluent
+Class_Instance: [HorizontalTable, table7]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasPose, Pose, poseTable7]
+---
+!Fluent
+Class_Instance: [Pose, poseTable7]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasX, "xsd:float",  10.92]
+  -  [hasY, "xsd:float",  14.99]
+  -  [hasZ, "xsd:float",  0.00]
+  -  [hasYaw, "xsd:float", 1.57]
+---
+!Fluent
+Class_Instance: [HorizontalTable, table8]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasPose, Pose, poseTable8]
+---
+!Fluent
+Class_Instance: [Pose, poseTable8]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasX, "xsd:float",  7.82]
+  -  [hasY, "xsd:float",  15.39]
+  -  [hasZ, "xsd:float",  0.00]
+  -  [hasYaw, "xsd:float", 0.00]
+---
+!Fluent
+#Class_Instance: [Board, board1]
+Class_Instance: [Table, board1]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasPose, Pose, poseBoard1]
+---
+!Fluent
+Class_Instance: [Pose, poseBoard1]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasX, "xsd:float",  7.68]
+  -  [hasY, "xsd:float",  13.90]
+  -  [hasZ, "xsd:float",  0.00]
+  -  [hasYaw, "xsd:float", 0.00]
+---
+!Fluent
+Class_Instance: [Chair, chair1]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasPose, Pose, poseChair1]
+---
+!Fluent
+Class_Instance: [Pose, poseChair1]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasX, "xsd:float",  7.05]
+  -  [hasY, "xsd:float",  11.43]
+  -  [hasZ, "xsd:float", 0.375]  # ok
+  -  [hasYaw, "xsd:float", 1.57]
+---
+!Fluent
+Class_Instance: [Chair, chair2]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasPose, Pose, poseChair2]
+---
+!Fluent
+Class_Instance: [Pose, poseChair2]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasX, "xsd:float",  8.32]
+  -  [hasY, "xsd:float",  11.42]
+  -  [hasZ, "xsd:float", 0.375]  # ok
+  -  [hasYaw, "xsd:float", -1.57]
+---
+!Fluent
+Class_Instance: [Chair, chair3]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasPose, Pose, poseChair3]
+---
+!Fluent
+Class_Instance: [Pose, poseChair3]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasX, "xsd:float",  10.24]
+  -  [hasY, "xsd:float",  12.06]
+  -  [hasZ, "xsd:float", 0.375]  # ok
+  -  [hasYaw, "xsd:float", 0.00]
+---
+!Fluent
+Class_Instance: [Chair, chair4]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasPose, Pose, poseChair4]
+---
+!Fluent
+Class_Instance: [Pose, poseChair4]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasX, "xsd:float",  10.22]
+  -  [hasY, "xsd:float",  10.80]
+  -  [hasZ, "xsd:float", 0.375]  # ok
+  -  [hasYaw, "xsd:float", 3.14]
+---
+!Fluent
+Class_Instance: [Mug, mug1]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasPose, Pose, poseMug1]
+---
+!Fluent
+Class_Instance: [Pose, poseMug1]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasX, "xsd:float",  5.37]
+  -  [hasY, "xsd:float",  10.20]
+  -  [hasZ, "xsd:float",  1.135]
+  -  [hasYaw, "xsd:float", -1.40]
+---
+!Fluent
+Class_Instance: [Mug, mug2]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasPose, Pose, poseMug2]
+---
+!Fluent
+Class_Instance: [Pose, poseMug2]
+StartTime: [0, 0]
+FinishTime: [0, 0]
+Properties:
+  -  [hasX, "xsd:float",  5.37]
+  -  [hasY, "xsd:float",  9.76]
+  -  [hasZ, "xsd:float",  1.135]
+  -  [hasYaw, "xsd:float", -1.40]

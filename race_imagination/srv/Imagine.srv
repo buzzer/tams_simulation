@@ -1,0 +1,11 @@
+# Define the goal
+# Copied from Imagine.action
+string action # move_base, pickup, place etc.
+race_msgs/ParamList[] parameter # north, south, slow, medium, fast
+# Services provided by the translator to generate the input state for Imagination
+race_msgs/Atom[] updated_fluents
+---
+# Define the result: all fields are lists of lists
+race_msgs/ParamList[] parameter # north, south, slow, medium, fast
+race_msgs/DurationList[] durations
+race_msgs/ConfidenceList[] confidences

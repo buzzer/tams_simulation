@@ -1,0 +1,25 @@
+<package>
+  <description brief="race_imagination">
+
+     race_imagination provides an action interface to simulate dedicate episodes
+     with the given parameters. It returns the best suited parameter for that episode.
+
+  </description>
+  <author>sebastian</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/race_imagination</url>
+  <depend package="roscpp"/>
+  <depend package="gazebo_msgs"/>
+  <depend package="race_msgs"/>
+  <depend package="actionlib"/>
+  <depend package="actionlib_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="std_msgs"/>
+  <depend package="race_simulation_run"/>
+  <depend package="tf"/>
+  <depend package="pr2_controllers_msgs"/>
+
+</package>
+
+

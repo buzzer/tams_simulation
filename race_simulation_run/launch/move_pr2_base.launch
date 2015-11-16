@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<launch>
+  <!--Set the PR2 pose-->
+
+  <!--a little to the left-->
+  <arg name="pose1" default="false"/>
+  <!--a little to the right-->
+  <arg name="pose2" default="false"/>
+  <!--a little to the back-->
+  <arg name="pose3" default="false"/>
+  <!--standard position-->
+  <arg name="pose4" default="false"/>
+
+  <node if="$(arg pose1)" name="move_pr2_base_node1" pkg="rostopic" type="rostopic"
+    args="pub gazebo/set_model_state gazebo/ModelState '{model_name:
+    pr2, pose: { position: { x: -6.39, y: -0.20, z: 0.00 }, orientation:
+    {x: 0, y: 0, z: 1.00, w: 0 } }, twist: { linear: { x: 0, y: 0, z: 0 }, angular:
+    { x: 0, y: 0, z: 0}  }, reference_frame: world }'" output="screen"/>
+
+  <node if="$(arg pose2)" name="move_pr2_base_node2" pkg="rostopic" type="rostopic"
+    args="pub gazebo/set_model_state gazebo/ModelState '{model_name:
+    pr2, pose: { position: { x: -6.39, y: 0.20, z: 0.00 }, orientation:
+    {x: 0, y: 0, z: 1.00, w: 0 } }, twist: { linear: { x: 0, y: 0, z: 0 }, angular:
+    { x: 0, y: 0, z: 0}  }, reference_frame: world }'" output="screen"/>
+
+  <node if="$(arg pose3)" name="move_pr2_base_node3" pkg="rostopic" type="rostopic"
+    args="pub gazebo/set_model_state gazebo/ModelState '{model_name:
+    pr2, pose: { position: { x: -6.19, y: 0.00, z: 0.00 }, orientation:
+    {x: 0, y: 0, z: 1.00, w: 0 } }, twist: { linear: { x: 0, y: 0, z: 0 }, angular:
+    { x: 0, y: 0, z: 0}  }, reference_frame: world }'" output="screen"/>
+
+  <node if="$(arg pose4)" name="move_pr2_base_node4" pkg="rostopic" type="rostopic"
+    args="pub gazebo/set_model_state gazebo/ModelState '{model_name:
+    pr2, pose: { position: { x: -6.39, y: 0.00, z: 0.00 }, orientation:
+    {x: 0, y: 0, z: 1.00, w: 0 } }, twist: { linear: { x: 0, y: 0, z: 0 }, angular:
+    { x: 0, y: 0, z: 0}  }, reference_frame: world }'" output="screen"/>
+
+</launch>

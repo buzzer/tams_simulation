@@ -1,0 +1,9 @@
+<stack>
+  <description brief="race_simulation">race_simulation</description>
+  <author>Maintained by Sebastian Rockel</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/race_simulation</url>
+  <depend stack="ros" />
+
+</stack>

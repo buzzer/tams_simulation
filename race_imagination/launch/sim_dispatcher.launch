@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find pr2_machine)/$(env ROBOT).machine" />
+
+  <arg name="topic_prefix_pub" default="/sim_dispatcher/sim_state"/>
+  <arg name="topic_prefix_sub" default="/sim_client/sim_state"/>
+  
+  <!--To be started local-->
+  <node machine="c2" name="sim_dispatcher" pkg="race_imagination" type="sim_dispatcher"
+    args="$(arg topic_prefix_pub) $(arg topic_prefix_sub)" respawn="false" />
+</launch>

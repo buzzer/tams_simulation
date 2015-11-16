@@ -1,0 +1,11 @@
+# Define the goal
+string action # move_base, pickup, place etc.
+race_msgs/ParamList[] parameter # north, south, slow, medium, fast
+race_msgs/WorldState world_state
+race_msgs/RobotState robot_state
+---
+# Define the result: all fields are lists of lists
+race_msgs/ParamList[] parameter # north, south, slow, medium, fast
+race_msgs/DurationList[] durations
+race_msgs/ConfidenceList[] confidences
+---

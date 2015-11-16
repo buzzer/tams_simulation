@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="sim" default="true"/>
+  <arg name="viz" default="true"/>
+  <arg name="gui" default="true"/>
+
+  <arg name="topple_1" default="false"/>
+  <arg name="topple_2" default="false"/>
+  <arg name="topple_3" default="false"/>
+  <arg name="topple_4" default="false"/>
+
+  <arg name="base_dyn_topic" default="/speedmarker/pr2_base_dynamics"/>
+  <arg name="obj_dev_topic"  default="/object_monitor/obj_dev"/>
+  <arg name="obj_dyn_topic"  default="/object_monitor/obj_dynamics"/>
+  <arg name="base_ctl_topic" default="/base_controller/command"/>
+  <!--1/sleep = frequency-->
+  <arg name="sampling_sleep" default="0.1"/>
+
+  <!-- start up restaurant world (DAE collada mesh) -->
+  <!--<include if="$(arg sim)" file="$(find race_pr2_markers)/launch/toppleover.launch">-->
+  <include if="$(arg sim)" file="$(find race_pr2_markers)/launch/toppleover.launch">
+    <arg name="topple_1" value="$(arg topple_1)" />
+    <arg name="topple_2" value="$(arg topple_2)" />
+    <arg name="topple_3" value="$(arg topple_3)" />
+    <arg name="topple_4" value="$(arg topple_4)" />
+    <arg name="sim"      value="$(arg sim)"      />
+    <arg name="viz"      value="$(arg viz)"      />
+    <arg name="gui"      value="$(arg gui)"      />
+  </include>
+  
+  <!--Update the robot's AMCL pose hypothesis by querying the simulation ground truth-->
+  <!--<node if="$(arg sim)" pkg="topple_scenarios" type="topple_episode_monitor"-->
+  <node pkg="topple_scenarios" type="topple_episode_monitor"
+    name="topple_episode_monitor"
+    args="$(arg base_dyn_topic)
+    $(arg obj_dev_topic)
+    $(arg obj_dyn_topic)
+    $(arg base_ctl_topic)
+    $(arg sampling_sleep)"
+    respawn="true"
+    output="screen">
+  </node>
+
+  <!--Record a rosbag-->
+  <node name="rosbag_learn_topple" pkg="topple_scenarios" type="record-rosbag.sh" output="screen" />
+
+</launch>

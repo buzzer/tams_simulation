@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<launch>
+  <!--Start up the Gazebo GUI-->
+  <arg name="gui" default="true"/>
+
+  <!--carryarm server started?-->
+  <arg name="carryarm" default="true"/>
+
+  <!-- start up restaurant world (DAE collada mesh) -->
+  <include file="$(find race_gazebo_worlds)/launch/tams_rest_3d_counter.launch">
+    <arg name="gui" value="$(arg gui)" />
+  </include>
+
+  <!-- send pr2 urdf to param server -->
+  <!--<param name="robot_description" command="$(find xacro)/xacro.py '$(find pr2_gazebo)/robots/pr2_with_kinect.urdf.xacro'" />-->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find race_pr2_description)/robots/race_pr2.urdf.xacro'" />
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_pr2_model" pkg="gazebo" type="spawn_model" args="$(optenv ROBOT_INITIAL_POSE -x -6.39 -y 0.00 -Y -3.14) -unpause -urdf -param robot_description -model pr2" respawn="false" output="screen" />
+  <!--TODO adapt orientation-->
+
+  <!-- default bringup script -->
+  <include file="$(find race_gazebo_worlds)/launch/pr2_bringup.launch" />
+  <!--<include file="$(find pr2_gazebo)/pr2_bringup.launch" />-->
+
+  <!-- Load and Start Default Controllers -->
+  <include file="$(find pr2_controller_configuration_gazebo)/pr2_default_controllers.launch" />
+
+  <!--Navigation-->
+  <node name="map_server" pkg="map_server" type="map_server"
+      args="$(find race_navigation)/config/map_120628_cor.pgm 0.05" respawn="true" />
+
+  <!--Move the torso up for manipulation-->
+  <node name="torso_up_node" pkg="carryarm_actionlib" type="torso_up" args="" respawn="false" output="screen" />
+
+  <!--Launch interactive manipulation-->
+  <include file="$(find pr2_interactive_manipulation)/launch/pr2_interactive_manipulation_robot.launch" >
+    <arg name="sim" value="true" />
+    <arg name="stereo" value="false" />
+    <arg name="model_set" value="RACE_MODEL_SET" />
+    <arg name="nav" value="true" />
+  </include>
+  <!--Override default wgs36 settings-->
+  <param name="/household_objects_database/database_host" value="localhost"/>
+  <param name="/household_objects_database/database_name" value="household_objects"/>
+  <!--<param name="/household_objects_database/database_pass" value="willow"/>-->
+  <!--<param name="/household_objects_database/database_port" value="5432"/>-->
+  <!--<param name="/household_objects_database/database_user" value="willow"/>-->
+
+  <include file="$(find pr2_interactive_manipulation)/launch/pr2_interactive_manipulation_desktop.launch" />
+
+  <!-- Start the carryarm_actionlib server -->
+  <node if="$(arg carryarm)" name="carryarm" pkg="carryarm_actionlib" type="carryarm_server" args="" respawn="true" output="screen" />
+
+</launch>

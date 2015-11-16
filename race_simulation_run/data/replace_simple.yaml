@@ -1,0 +1,41 @@
+!FluentPoseModification
+Instance: poseTable1
+Group: testGroup1
+Choices: 3
+Modifications:
+  -  [hasX, [0, 0]]
+  -  [hasY, [0, 0]]
+  -  [hasZ, [-0.375, -0.375]]
+Attachments: [poseChair1, poseChair2]
+---
+!FluentPoseModification
+Instance: poseTable2
+Group: testGroup1
+Choices: 3
+Modifications:
+  -  [hasX, [0, 0]]
+  -  [hasY, [0, 0]]
+  -  [hasZ, [-0.375, -0.375]]
+Attachments: [poseChair3, poseChair4]
+---
+!FluentPoseModification
+Instance: poseCounter1
+Group: testGroup1
+Choices: 3
+Modifications:
+  -  [hasX, [0, 0]]
+  -  [hasY, [0, 0]]
+  -  [hasZ, [-0.375, -0.375]]
+  -  [hasYaw, [0, 0]]
+Attachments: [poseMug1, poseMug2]
+---
+!FluentPoseModification
+Instance: posePR21
+Group: testGroup2
+Choices: 3
+Modifications:
+  -  [hasX, [0, -1, 0]]
+  -  [hasY, [0, 1, 1]]
+  -  [hasYaw, [0, -2, -0.43]]
+Attachments: []
+

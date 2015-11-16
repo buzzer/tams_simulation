@@ -1,0 +1,5 @@
+#local_pubs: [local_topics_to_register_at_foreign_master]
+local_pubs: [/gazebo/model_states]
+foreign_pubs: [/gazebo/model_states]
+local_services: [/gazebo/pause_physics, /gazebo/unpause_physics]
+foreign_services: [/gazebo/pause_physics, /gazebo/unpause_physics]

@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="client_id" default="1"/>
+
+  <!-- Define the blackboard config, i.e. the sesame_server: remote or local -->
+  <!--<arg name="sesame_remote" default="true"/>-->
+  <arg name="sesame_remote" default="false"/>
+
+  <!-- sesame server -->
+  <arg if="$(arg sesame_remote)" name="sesame_server" default="http://hitec-race.informatik.uni-hamburg.de:8080/openrdf-sesame/" />
+  <arg unless="$(arg sesame_remote)" name="sesame_server" default="http://localhost:8080/openrdf-sesame/" />  
+
+  <arg name="sesame_repo" default="sim_client" />
+
+  <!--Start up a dedicated scenario-->
+  <arg name="demo_11a" default="false"/>
+  <arg name="demo_11b" default="false"/>
+  <arg name="demo_11c" default="false"/>
+  <arg name="demo_12a" default="false"/>
+  <arg name="demo_12b" default="false"/>
+  <!--Only for testing purposes set to true! FIXME-->
+  <arg name="demo_21a" default="true"/>
+  <arg name="demo_21b" default="false"/>
+  <arg name="demo_21c" default="false"/>
+  <arg name="demo_22a" default="false"/>
+  <arg name="demo_22b" default="false"/>
+  <arg name="demo_24a" default="false"/>
+  <arg name="demo_24b" default="false"/>
+  <arg name="serve_clear" default="false"/>
+  <arg name="oru_demo" default="false"/>
+  <arg name="oru_ecai" default="false"/>
+  <arg name="demo_311a" default="false"/>
+  <arg name="demo_311b" default="false"/>
+  <arg name="demo_iros15b" default="false"/>
+  <arg name="demo_312a" default="false"/>
+  <arg name="demo_32a" default="false"/>
+
+  <!--Gazebo model on tray-->
+  <arg name="model" default="race_peppermill1"/>
+
+  <arg name="base_dyn_topic" default="/speedmarker/pr2_base_dynamics"/>
+  <arg name="obj_dev_topic"  default="/object_monitor/obj_dev"/>
+  <arg name="obj_dyn_topic"  default="/object_monitor/obj_dynamics"/>
+  <arg name="base_ctl_topic" default="/base_controller/command"/>
+  <!--1/sleep = frequency-->
+  <arg name="sampling_sleep" default="0.1"/>
+
+  <!--To be started on remote host-->
+  <node name="sim_client" pkg="race_imagination" type="sim_client" args="$(arg client_id)" respawn="false" />
+  <!--TODO set respawn to true-->
+
+  <!--Start black board-->
+  <node pkg="race_bb" type="blackboard.py" name="blackboard_node" output="screen">
+    <param name="topics_config" value="$(find race_bringup)/config/bb_topics.yaml" />
+    <param name="sesame_server" value="$(arg sesame_server)" />
+    <param name="sesame_repo" value="$(arg sesame_repo)" />
+  </node>
+
+  <!-- load common static knowledge -->
+  <include file="$(find race_bringup)/launch/load_static_knowledge.launch" />
+       
+  <!--Static knowledge-->
+  <include file="$(find race_bringup)/launch/load_static_knowledge_scenario.launch">
+    <arg name="demo_11_a" value="$(arg demo_11a)" />
+    <arg name="demo_11_b" value="$(arg demo_11b)" />
+    <arg name="demo_11_c" value="$(arg demo_11c)" />
+    <arg name="demo_12_a" value="$(arg demo_12a)" />
+    <arg name="demo_12_b" value="$(arg demo_12b)" />
+    <arg name="demo_21_a" value="$(arg demo_21a)" />
+    <arg name="demo_21_b" value="$(arg demo_21b)" />
+    <arg name="demo_21_c" value="$(arg demo_21c)" />
+    <arg name="demo_22_a" value="$(arg demo_22a)" />
+    <arg name="demo_22_b" value="$(arg demo_22b)" />
+    <arg name="demo_24_a" value="$(arg demo_24a)" />
+    <arg name="demo_24_b" value="$(arg demo_24b)" />
+    <arg name="serve_clear" value="$(arg serve_clear)" />
+    <arg name="oru_demo" value="$(arg oru_demo)" />
+    <arg name="oru_ecai" value="$(arg oru_ecai)" />
+    <arg name="demo_311a" value="$(arg demo_311a)"/>
+    <arg name="demo_311b" value="$(arg demo_311b)"/>
+    <arg name="demo_iros15b" value="$(arg demo_iros15b)"/> <!-- IROS 2015 replanning -->
+    <arg name="demo_312a" value="$(arg demo_312a)"/>
+    <arg name="demo_32a"  value="$(arg demo_32a)"/>
+  </include>
+
+  <!--Start prerequisites-->
+  <include file="$(find race_bringup)/launch/race_prerequisites.launch" />
+
+  <!--[>Static knowledge<]                                                              -->
+  <!--<include file="$(find race_bringup)/launch/load_static_knowledge_scenario.launch">-->
+  <!--  <arg name="demo_11_a" value="$(arg demo_11a)" />                                -->
+  <!--  <arg name="demo_11_b" value="$(arg demo_11b)" />                                -->
+  <!--  <arg name="demo_11_c" value="$(arg demo_11c)" />                                -->
+  <!--  <arg name="demo_12_a" value="$(arg demo_12a)" />                                -->
+  <!--  <arg name="demo_12_b" value="$(arg demo_12b)" />                                -->
+  <!--  <arg name="demo_21_a" value="$(arg demo_21a)" />                                -->
+  <!--  <arg name="demo_21_b" value="$(arg demo_21b)" />                                -->
+  <!--  <arg name="demo_21_c" value="$(arg demo_21c)" />                                -->
+  <!--  <arg name="demo_22_a" value="$(arg demo_22a)" />                                -->
+  <!--  <arg name="demo_22_b" value="$(arg demo_22b)" />                                -->
+  <!--  <arg name="demo_24_a" value="$(arg demo_24a)" />                                -->
+  <!--  <arg name="demo_24_b" value="$(arg demo_24b)" />                                -->
+  <!--  <arg name="serve_clear" value="$(arg serve_clear)" />                           -->
+  <!--  <arg name="oru_demo" value="$(arg oru_demo)" />                                 -->
+  <!--  <arg name="oru_ecai" value="$(arg oru_ecai)" />                                 -->
+  <!--  <arg name="demo_311a" value="$(arg demo_311a)"/>                                -->
+  <!--  <arg name="demo_311b" value="$(arg demo_311b)"/>                                -->
+  <!--  <arg name="demo_iros15b" value="$(arg demo_iros15b)"/>                          -->
+  <!--  <arg name="demo_312a" value="$(arg demo_312a"/>                                 -->
+  <!--  <arg name="demo_32a"  value="$(arg demo_32a"/>                                  -->
+  <!--</include>                                                                        -->
+
+  <!--Set the domain file-->
+  <include file="$(find race_bringup)/launch/set_domain.launch">
+    <arg name="demo_11a" value="$(arg demo_11a)" />
+    <arg name="demo_11b" value="$(arg demo_11b)" />
+    <arg name="demo_11c" value="$(arg demo_11c)" />
+    <arg name="demo_12a" value="$(arg demo_12a)" />
+    <arg name="demo_12b" value="$(arg demo_12b)" />
+    <arg name="demo_21a" value="$(arg demo_21a)" />
+    <arg name="demo_21b" value="$(arg demo_21b)" />
+    <arg name="demo_21c" value="$(arg demo_21c)" />
+    <arg name="demo_22a" value="$(arg demo_22a)" />
+    <arg name="demo_22b" value="$(arg demo_22b)" />
+    <arg name="demo_24a" value="$(arg demo_24a)" />
+    <arg name="demo_24b" value="$(arg demo_24b)" />
+    <arg name="serve_clear" value="$(arg serve_clear)" />
+    <arg name="oru_demo" value="$(arg oru_demo)" />
+    <arg name="oru_ecai" value="$(arg oru_ecai)" />
+    <arg name="demo_311a" value="$(arg demo_311a)"/>
+    <arg name="demo_311b" value="$(arg demo_311b)"/>
+    <arg name="demo_iros15b" value="$(arg demo_iros15b)"/>
+    <arg name="demo_312a" value="$(arg demo_312a)"/>
+    <arg name="demo_32a"  value="$(arg demo_32a)"/>
+  </include>
+
+
+  <!--Start spatial reasoner-->
+  <include file="$(find race_spatial_reasoner)/launch/race_spatial_reasoner.launch" />
+
+  <!--Start middlelayer-->
+  <node name="execution_middlelayer" pkg="race_plan_executor" type="execution_middlelayer.py" output="screen">
+    <!-- use service provided by tabletop_object_publisher -->
+    <!--<remap from="object_detection" to="wrapped_object_detection" />-->
+  </node>
+
+  <!--Visualization of move base parameters-->
+  <node name="race_pr2_speedmarker" pkg="race_pr2_markers" type="speedmarker" args="" output="screen" respawn="false"/>
+  <node name="object_monitor" pkg="race_simulation_run" type="object_monitor" output="screen" respawn="true"
+    args="$(arg model)"/>
+  <node name="object_reset" pkg="race_simulation_run" type="object_reset" output="screen" respawn="true"
+    args="$(arg model)"/>
+
+  <!--create topple episode fluents-->
+  <node pkg="topple_scenarios" type="topple_episode_monitor"
+    name="topple_episode_monitor"
+    args="$(arg base_dyn_topic)
+    $(arg obj_dev_topic)
+    $(arg obj_dyn_topic)
+    $(arg base_ctl_topic)
+    $(arg sampling_sleep)"
+    respawn="true"
+    output="screen">
+  </node>
+
+  <!-- Tug Arms For Navigation -->
+  <node name="tuckarms" pkg="pr2_tuckarm" type="tuck_arms.py" args="b" output="screen" />
+  <!-- Move torso up to free the tray -->
+  <node name="move_torso_up" pkg="carryarm_actionlib" type="torso_up" output="screen" />
+
+</launch>

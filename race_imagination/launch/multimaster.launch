@@ -1,0 +1,18 @@
+<launch>
+
+  <!--Hostname where the master is running-->
+  <arg name="master"/>
+
+  <!--Which client is the caller?-->
+  <arg name="c1" default="false"/>
+  <arg name="c2" default="false"/>
+  <arg name="c3" default="false"/>
+
+  <node pkg="multisim" type="master_sync.py" name="master_sync" output="screen"> 
+    <param name="foreign_master" value="http://$(arg master):11311" />    
+    <!--<rosparam command="load" file="$(find race_imagination)/config/multimaster.yaml" />-->
+    <rosparam if="$(arg c1)" command="load" file="$(find race_imagination)/config/multimaster_client1.yaml" />
+    <rosparam if="$(arg c2)" command="load" file="$(find race_imagination)/config/multimaster_client2.yaml" />
+    <rosparam if="$(arg c3)" command="load" file="$(find race_imagination)/config/multimaster_client3.yaml" />
+  </node>
+</launch>

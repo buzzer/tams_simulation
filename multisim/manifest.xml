@@ -1,0 +1,20 @@
+<package>
+  <description brief="multisim">
+
+    multisim provides mechanisms to communicate with multiple Gazebo simulations over multiple hosts.
+    Originally taken from the multimaster project and adapted:
+
+    Multimaster is a script allowing to register topics and services at a second
+    master and to subscribe to topics and services from a second master.
+    Maintained by Wim Meeussen (http://ros.org/wiki/multimaster).
+
+  </description>
+  <author>Sebastian Rockel</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/multisim</url>
+
+  <!--<depend package="ros" />-->
+  <!--<depend package="ros_comm" /> [> rospy, rosgraph <]-->
+
+</package>

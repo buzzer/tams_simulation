@@ -1,0 +1,28 @@
+<package>
+  <description brief="scenarios">
+
+     scenarios contains simulation scenarios.
+
+  </description>
+  <author>Sebastian Rockel</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/scenarios</url>
+  <depend package="roscpp"/>
+  <depend package="pr2_navigation_global"/>
+  <depend package="move_base_msgs"/>
+  <depend package="actionlib"/>
+  <depend package="tf"/>
+  <depend package="dynamic_reconfigure"/>
+  <depend package="race_simulation_run"/>
+  <depend package="geometry_msgs"/>
+  <depend package="std_msgs"/>
+  <depend package="race_pr2_markers"/>
+
+  <export>
+    <!--<cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -ltest_utility"/>-->
+    <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib"/>
+  </export>
+
+</package>
+

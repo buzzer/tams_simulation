@@ -1,0 +1,2 @@
+local_pubs: [/sim_client/sim_state1]
+foreign_pubs: [/sim_dispatcher/sim_state1]

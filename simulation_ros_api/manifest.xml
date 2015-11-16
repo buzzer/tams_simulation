@@ -1,0 +1,20 @@
+<package>
+  <description brief="simulation_ros_api">
+
+     simulation_ros_api encapsulates the functionality to manipulate the
+     simulation via ROS interfaces (services, actions, msgs etc.).
+
+  </description>
+  <author>Sebastian Rockel</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/simulation_ros_api</url>
+  <depend package="race_simulation_run"/>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+  <depend package="race_msgs"/>
+  <depend package="gazebo_msgs"/>
+
+</package>
+
+
