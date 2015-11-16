@@ -1,0 +1,27 @@
+<package>
+  <name>simulation_ros_api</name>
+  <version>1.0.0</version>
+  <description>
+
+     simulation_ros_api encapsulates the functionality to manipulate the
+     simulation via ROS interfaces (services, actions, msgs etc.).
+
+  </description>
+  <maintainer email="sebastian@rockel.cc">Sebastian Rockel</maintainer>
+  <license>BSD</license>
+  <!--<review status="unreviewed" notes=""/>-->
+  <url>http://ros.org/wiki/simulation_ros_api</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <run_depend>message_runtime</run_depend>
+
+  <build_depend>race_simulation_run</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>race_msgs</build_depend>
+  <build_depend>gazebo_msgs</build_depend>
+
+</package>
+
+

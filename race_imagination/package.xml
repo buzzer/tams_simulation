@@ -1,0 +1,34 @@
+<package>
+  <name>race_imagination</name>
+  <version>1.0.0</version>
+  <description>
+
+     race_imagination provides an action interface to simulate dedicate episodes
+     with the given parameters. It returns the best suited parameter for that episode.
+
+  </description>
+  <maintainer email="sebastian@rockel.cc">Sebastian Rockel</maintainer>
+  <license>BSD</license>
+  <!--<review status="unreviewed" notes=""/>-->
+  <url>http://ros.org/wiki/race_imagination</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>message_generation</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>gazebo_msgs</build_depend>
+  <build_depend>race_msgs</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>actionlib_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>race_simulation_run</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>pr2_controllers_msgs</build_depend>
+
+  <run_depend>message_runtime</run_depend>
+  <run_depend>actionlib_msgs</run_depend>
+
+</package>
+
+

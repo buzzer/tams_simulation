@@ -1,5 +1,7 @@
 <package>
-  <description brief="multisim">
+  <name>multisim</name>
+  <version>1.0.0</version>
+  <description>
 
     multisim provides mechanisms to communicate with multiple Gazebo simulations over multiple hosts.
     Originally taken from the multimaster project and adapted:
@@ -9,11 +11,12 @@
     Maintained by Wim Meeussen (http://ros.org/wiki/multimaster).
 
   </description>
-  <author>Sebastian Rockel</author>
+  <maintainer email="sebastian@rockel.cc">Sebastian Rockel</maintainer>
   <license>BSD</license>
-  <review status="unreviewed" notes=""/>
+  <!--<review status="unreviewed" notes=""/>-->
   <url>http://ros.org/wiki/multisim</url>
 
+  <buildtool_depend>catkin</buildtool_depend>
   <!--<depend package="ros" />-->
   <!--<depend package="ros_comm" /> [> rospy, rosgraph <]-->
 

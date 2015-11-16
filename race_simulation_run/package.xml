@@ -1,0 +1,55 @@
+<package>
+  <name>race_simulation_run</name>
+  <version>1.0.0</version>
+  <description>
+
+     race_simulation_run provides applications and tools to run the RACE system
+     and Gazebo simulation in an automated manner.
+     Applications include an Gazebo (ROS) interface class as well as a YAML
+     parser class parsing the RACE Fluent format. The functionality is used in
+     the executable 'sim_run' which encapsulates functionality to automate the
+     system.
+
+  </description>
+  <maintainer email="sebastian@rockel.cc">Sebastian Rockel</maintainer>
+  <license>BSD</license>
+  <!--<review status="unreviewed" notes=""/>-->
+  <url>http://ros.org/wiki/race_simulation_run</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <run_depend>message_runtime</run_depend>
+
+  <build_depend>roscpp</build_depend>
+  <run_depend>roscpp</run_depend>
+  <build_depend>roslib</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>tf</build_depend>
+
+  <build_depend>visualization_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+
+  <build_depend>pcl</build_depend>
+  <build_depend>pcl_ros</build_depend>
+  <build_depend>household_objects_database_msgs</build_depend>
+
+  <build_depend>actionlib</build_depend>
+  <build_depend>pr2_controllers_msgs</build_depend>
+  <build_depend>race_tabletop_object_publisher</build_depend>
+  <build_depend>gazebo_msgs</build_depend>
+  <build_depend>race_msgs</build_depend>
+  <build_depend>gazebo</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>race_pr2_markers</build_depend>
+  <build_depend>robot_motion_param</build_depend>
+
+  <!--<rosdep name="python-yaml" />-->
+  <run_depend>python-yaml</run_depend>
+
+  <export>
+    <!--<cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -ltest_utility"/>-->
+    <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib"/>
+  </export>
+
+</package>
